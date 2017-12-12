@@ -14,12 +14,20 @@ public class Music {
     static Clip clip;
 
 
+    /**
+     * Opens the file containing the music
+     * @param path to the music file
+     */
     private static void openFile (String path) {
 
         audioFile = new File(path); //TODO insert pathname
 
     }
 
+    /**
+     * Loads the song
+     * @param path to te music file
+     */
     private static void loadSong(String path) {
 
         try {
@@ -34,6 +42,10 @@ public class Music {
         }
     }
 
+    /**
+     * Plays the song after have loaded it
+     * @param path to the music file
+     */
     public static void play(String path){
         loadSong(path);
         clip.start();
