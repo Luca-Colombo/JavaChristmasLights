@@ -1,4 +1,4 @@
-import com.opencsv.CSVReader;
+import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,17 +12,17 @@ public class CsvParser {
 
 
     /**
-     * Parses the CSV file and divides it by line. Each line is an array of Strings.
-     * @return the List containing the arrays with the values
+     * Parses the CSV file and divides it by line.
+     *
+     * @return the List containing the values
      * @throws IOException if file is missing
      */
-    public static List<String[]> parse() throws IOException {
+    public static List<Line> parseType() throws IOException {
 
-            CSVReader reader = new CSVReader(new FileReader("jinglebells.csv"));
-            List<String[]> myEntries = reader.readAll();
+        List<Line> beans = new CsvToBeanBuilder(new FileReader("diocibenedira.csv"))
+                .withType(Line.class).build().parse();
 
-            return myEntries;
-
+        return beans;
     }
 
 }
