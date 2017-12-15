@@ -4,6 +4,7 @@ import java.util.List;
 import static java.lang.Thread.sleep;
 
 /**
+ * Main class
  *
  * @author Colombo Luca
  */
@@ -24,6 +25,8 @@ public class Xmas {
             sequence = CsvParser.parseType();
 
             startTime = System.currentTimeMillis();
+
+            lights.speakerCh(); // Turn on the channel with the speaker
 
             //TODO add path
             music.play("diocibenedira.wav");

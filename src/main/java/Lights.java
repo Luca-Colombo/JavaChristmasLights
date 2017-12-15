@@ -1,6 +1,7 @@
 import com.pi4j.io.gpio.*;
 
 /**
+ * Class used to control the GPIOs
  *
  * @author Colombo Luca
  */
@@ -56,5 +57,9 @@ public class Lights {
      */
     public void shutdown() {
         gpio.shutdown();
+    }
+
+    public void speakerCh() {
+        lights[7].high();
     }
 }
