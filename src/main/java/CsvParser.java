@@ -19,7 +19,7 @@ public class CsvParser {
      * @return the List containing the values
      * @throws IOException if file is missing
      */
-    public static List<Line> parseType(String file) throws IOException {
+    public static List<Line> parseFromVixen(String file) throws IOException {
 
         File f = new File(file).getAbsoluteFile();
 
@@ -28,5 +28,16 @@ public class CsvParser {
 
         return beans;
     }
+
+    public static List<LineManual> parseFromManual(String file) throws IOException {
+
+        File f = new File(file).getAbsoluteFile();
+
+        List<LineManual> beans = new CsvToBeanBuilder(new FileReader(f))
+                .withType(LineManual.class).build().parse();
+
+        return beans;
+    }
+
 
 }

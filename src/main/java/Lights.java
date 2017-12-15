@@ -26,7 +26,7 @@ public class Lights {
                 gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, PinState.LOW),
                 gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05, PinState.LOW),
                 gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, PinState.LOW),
-                gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, PinState.HIGH)
+                gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, PinState.LOW)
         };
 
         // configure the pins shutdown behavior; these settings will be

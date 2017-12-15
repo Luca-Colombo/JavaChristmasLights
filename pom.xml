@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Xmas</mainClass>
+                            <mainClass>Launcher</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

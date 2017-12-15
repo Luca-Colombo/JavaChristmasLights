@@ -7,19 +7,19 @@ import java.util.ListIterator;
  *
  * @author Colombo Luca
  */
-public class Xmas {
+public class XmasVixen implements FactoryXmas{
 
 
-    public static void main(String[] args) {
         Lights lights = new Lights();
         Music music = new Music();
         List<Line> sequence;
         long startTime;
         long currentTime;
 
-
+        @Override
+        public void start(String[] args){
         try {
-            sequence = CsvParser.parseType(args[0]);
+            sequence = CsvParser.parseFromVixen(args[0]);
 
             System.out.println("Sequence loaded");
 
@@ -55,7 +55,7 @@ public class Xmas {
                         }
                         System.out.print(line.getChannels()[ch] + "   ");
                     }
-                    System.out.println();
+                    System.out.println(currentTime);
                     // And proceed to the next line
                     line = itr.next();
                 }
