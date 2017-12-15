@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>your.package.MainClass</mainClass>
+                            <mainClass>Xmas</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
