@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
+ * Class used to parse the sequence files
  *
  * @author Colombo Luca
  */
