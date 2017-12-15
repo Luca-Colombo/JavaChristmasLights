@@ -37,6 +37,7 @@ public class Xmas {
 
                 if (line.getTime() <= currentTime) {
 
+                    System.out.print(line.getTime() + "   ");
                     for (int ch = 0; ch <6; ch++) {
                         if (line.getChannels()[ch] == 255) {
                             lights.setHigh(ch);
@@ -44,8 +45,9 @@ public class Xmas {
                             lights.setLow(ch);
 
                         }
-
+                        System.out.print(line.getChannels()[ch] + "   ");
                     }
+                    System.out.println();
                 }
                 sleep(resolution);
             }
