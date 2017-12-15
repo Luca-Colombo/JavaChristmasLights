@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.List;
-
-import static java.lang.Thread.sleep;
+import java.util.ListIterator;
 
 /**
  * Main class
@@ -10,8 +9,6 @@ import static java.lang.Thread.sleep;
  */
 public class Xmas {
 
-    // The resolution at which the song is played
-    private final static int resolution = 100;
 
     public static void main(String[] args) {
         Lights lights = new Lights();
@@ -32,16 +29,22 @@ public class Xmas {
 
             //lights.speakerCh(); // Turn on the channel with the speaker
 
+            // Create the iterator to iterate through the list of sequences
+            ListIterator<Line> itr = sequence.listIterator();
+            //Get the first line of the sequence
+            Line line = itr.next();
+
             music.play(args[1]);
 
             System.out.println("music started");
 
-            for (Line line : sequence) {
+
+            while (itr.hasNext()) {
 
                 currentTime = System.currentTimeMillis() - startTime;
-
+                // If the current time corresponds to the one on the line sequence
                 if (line.getTime() <= currentTime) {
-
+                    // Set the channels
                     System.out.print(line.getTime() + "   ");
                     for (int ch = 0; ch <6; ch++) {
                         if (line.getChannels()[ch] == 255) {
@@ -53,8 +56,9 @@ public class Xmas {
                         System.out.print(line.getChannels()[ch] + "   ");
                     }
                     System.out.println();
+                    // And proceed to the next line
+                    line = itr.next();
                 }
-                sleep(resolution);
             }
 
             lights.shutdown();
