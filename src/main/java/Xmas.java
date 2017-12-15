@@ -22,14 +22,19 @@ public class Xmas {
 
 
         try {
-            sequence = CsvParser.parseType();
+            sequence = CsvParser.parseType(args[0]);
+
+            System.out.println("Sequence loaded");
+
+            Thread.sleep(3000);
 
             startTime = System.currentTimeMillis();
 
-            lights.speakerCh(); // Turn on the channel with the speaker
+            //lights.speakerCh(); // Turn on the channel with the speaker
 
-            //TODO add path
-            music.play("diocibenedira.wav");
+            music.play(args[1]);
+
+            System.out.println("music started");
 
             for (Line line : sequence) {
 

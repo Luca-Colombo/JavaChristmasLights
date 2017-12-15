@@ -1,5 +1,6 @@
 import com.opencsv.bean.CsvToBeanBuilder;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -18,9 +19,11 @@ public class CsvParser {
      * @return the List containing the values
      * @throws IOException if file is missing
      */
-    public static List<Line> parseType() throws IOException {
+    public static List<Line> parseType(String file) throws IOException {
 
-        List<Line> beans = new CsvToBeanBuilder(new FileReader("diocibenedira.csv"))
+        File f = new File(file).getAbsoluteFile();
+
+        List<Line> beans = new CsvToBeanBuilder(new FileReader(f))
                 .withType(Line.class).build().parse();
 
         return beans;

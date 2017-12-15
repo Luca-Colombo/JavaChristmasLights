@@ -20,7 +20,7 @@ public class Music {
      */
     private void openFile (String path) {
 
-        audioFile = new File(path); //TODO insert pathname
+        audioFile = new File(path).getAbsoluteFile();
 
     }
 

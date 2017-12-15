@@ -26,7 +26,7 @@ public class Lights {
                 gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, PinState.LOW),
                 gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05, PinState.LOW),
                 gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06, PinState.LOW),
-                gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, PinState.LOW)
+                gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07, PinState.HIGH)
         };
 
         // configure the pins shutdown behavior; these settings will be
@@ -41,7 +41,7 @@ public class Lights {
      * @param ch the number of the channel to set LOW (1-8)
      */
     public void setLow(int ch) {
-        lights[ch-1].low();
+        lights[ch].low();
     }
 
     /**
@@ -49,7 +49,7 @@ public class Lights {
      * @param ch the number of the channel to set HIGH (1-8)
      */
     public void setHigh(int ch) {
-        lights[ch-1].high();
+        lights[ch].high();
     }
 
     /**
