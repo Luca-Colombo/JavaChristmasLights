@@ -33,6 +33,8 @@ public class XmasVixen implements FactoryXmas{
             ListIterator<Line> itr = sequence.listIterator();
             //Get the first line of the sequence
             Line line = itr.next();
+            // Turn on the speaker
+            lights.speakerCh();
 
             music.play(args[1]);
 
