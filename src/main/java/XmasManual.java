@@ -21,8 +21,6 @@ public class XmasManual implements FactoryXmas {
 
             sequence = CsvParser.parseFromManual(args[0]);
 
-            startTime = System.currentTimeMillis();
-
             //lights.speakerCh(); // Turn on the channel with the speaker
 
             // Create the iterator to iterate through the list of sequences
@@ -33,6 +31,7 @@ public class XmasManual implements FactoryXmas {
             lights.speakerCh();
 
             music.play(args[1]);
+            startTime = System.currentTimeMillis();
 
             System.out.println("music started");
 
