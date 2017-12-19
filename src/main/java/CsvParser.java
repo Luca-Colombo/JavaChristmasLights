@@ -23,7 +23,7 @@ public class CsvParser {
 
         File f = new File(file).getAbsoluteFile();
 
-        List<Line> beans = new CsvToBeanBuilder(new FileReader(f))
+        List beans = new CsvToBeanBuilder(new FileReader(f))
                 .withType(Line.class).build().parse();
 
         return beans;
@@ -33,7 +33,7 @@ public class CsvParser {
 
         File f = new File(file).getAbsoluteFile();
 
-        List<LineManual> beans = new CsvToBeanBuilder(new FileReader(f))
+        List beans = new CsvToBeanBuilder(new FileReader(f))
                 .withType(LineManual.class).build().parse();
 
         return beans;

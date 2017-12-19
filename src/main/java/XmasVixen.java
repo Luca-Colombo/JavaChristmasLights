@@ -21,13 +21,13 @@ public class XmasVixen implements FactoryXmas{
         try {
             sequence = CsvParser.parseFromVixen(args[0]);
 
+            for (Line i : sequence) {
+                i.setChannels();
+            }
+
             System.out.println("Sequence loaded");
 
-            Thread.sleep(3000);
-
-            startTime = System.currentTimeMillis();
-
-            //lights.speakerCh(); // Turn on the channel with the speaker
+            lights.speakerCh(); // Turn on the channel with the speaker
 
             // Create the iterator to iterate through the list of sequences
             ListIterator<Line> itr = sequence.listIterator();
@@ -37,6 +37,7 @@ public class XmasVixen implements FactoryXmas{
             lights.speakerCh();
 
             music.play(args[1]);
+            startTime = System.currentTimeMillis();
 
             System.out.println("music started");
 
@@ -49,13 +50,13 @@ public class XmasVixen implements FactoryXmas{
                     // Set the channels
                     System.out.print(line.getTime() + "   ");
                     for (int ch = 0; ch <6; ch++) {
-                        if (line.getChannels()[ch] == 255) {
+                        if (line.getChannels(ch) == 255) {
                             lights.setHigh(ch);
                         } else {
                             lights.setLow(ch);
 
                         }
-                        System.out.print(line.getChannels()[ch] + "   ");
+                        System.out.print(line.getChannels(ch) + "   ");
                     }
                     System.out.println(currentTime);
                     // And proceed to the next line
@@ -67,7 +68,7 @@ public class XmasVixen implements FactoryXmas{
 
 
 
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

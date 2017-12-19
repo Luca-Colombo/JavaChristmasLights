@@ -21,7 +21,7 @@ public class XmasManual implements FactoryXmas {
 
             sequence = CsvParser.parseFromManual(args[0]);
 
-            //lights.speakerCh(); // Turn on the channel with the speaker
+            lights.speakerCh(); // Turn on the channel with the speaker
 
             // Create the iterator to iterate through the list of sequences
             ListIterator<LineManual> itr = sequence.listIterator();

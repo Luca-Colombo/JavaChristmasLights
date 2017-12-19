@@ -58,7 +58,7 @@ public class Line {
         return ch6;
     }
 
-    private void setChannels() {
+    public void setChannels() {
         channels[0] = ch1;
         channels[1] = ch2;
         channels[2] = ch3;
@@ -70,10 +70,11 @@ public class Line {
 
     }
 
-    public int[] getChannels() {
-        setChannels();
-        return channels;
+    public int getChannels(int ch) {
+        return channels[ch];
     }
+
+
     // UNCOMMENT ONLY IF 8 CHANNELS ARE USED
     /*
     @CsvBindByPosition(position = 7)
